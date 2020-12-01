@@ -310,7 +310,17 @@ async function buttonClick() {
    
     document.getElementById("change").src = "warning1.svg";
     // confirmBox.find(".message").text(msg);
-    document.getElementById("mesaom").innerHTML = "<p> ยอดเงิน <b>เกินมา " + money+ " บาท </b> "+ "</br>แน่ใจหรือว่านับถูกต้อง</p>";
+    console.log("money = "+money);
+    if(money>0)
+    {
+      document.getElementById("mesaom").innerHTML = "<p> ยอดเงิน <b>เกินมา " + money+ " บาท </b> "+ "</br>แน่ใจหรือว่านับถูกต้อง</p>";
+   
+    }
+    else
+    {
+      document.getElementById("mesaom").innerHTML = "<p> ยอดเงิน <b>ขาดมา " + -1*money+ " บาท </b> "+ "</br>แน่ใจหรือว่านับถูกต้อง</p>";
+    }
+    
     // confirmBox.find(".yes,.no").unbind().click(function() 
     // {
     //   confirmBox.hide();

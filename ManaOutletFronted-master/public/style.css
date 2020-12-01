@@ -244,19 +244,18 @@ input[type="text"]::placeholder {
   background-color: #ffffff;
   border: 1px solid #aaa;
   position: fixed;
-
   width: 250px;
-  left: 50%;
-  margin-left: -100px;
+  /* left: 28%; */
+  margin-left: 10%;
   padding: 15px;
   box-sizing: border-box;
   text-align: center;
   margin-top: 32%;
 }
-#confirm .no{
+#confirm .no {
   background-color: #ffffff;
   display: inline-block;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 1px solid #E9572F;
   padding: 5px;
   text-align: center;
@@ -265,12 +264,14 @@ input[type="text"]::placeholder {
 }
 #confirm button {
   background-color: #E9572F;
+  font-family: 'FC-ICONIC-BOLD';
   display: inline-block;
-  font-size: 16px;
-  border-radius: 15px;
+  font-size: 18px;
+  border-radius: 10px;
   border: 1px solid #aaa;
-  padding: 5px;
+  /* padding: 10px 12px 11px 12px; */
   text-align: center;
+  height: 36px;
   width: 100px;
   cursor: pointer;
 }
@@ -279,7 +280,8 @@ input[type="text"]::placeholder {
 }
 #confirm .message {
   font-family: "FC-Iconic";
-  text-align: left;
+  text-align: center;
+  margin-bottom: 5px;
 }
 #confirm .yes{
   color: #ffffff;

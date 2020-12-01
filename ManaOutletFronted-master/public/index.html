@@ -86,7 +86,7 @@
 			font-family: 'FC-ICONIC-BOLD';
 		}
 		#input-img2 {
-    margin-left: 18%;
+    margin-left: 20px;
 	float: left;
 	position: relative;
     margin-top: 40px;
@@ -215,7 +215,7 @@
 			  <img src="notes 1.svg" class="note-icon">
 			  <div class="headText-box">
 				<label class="headText" style = "font-size: 36px;font-weight: 500;">
-				 ส่งบิล
+				 ส่งบิล10
 				  <mark id="brance-name">
 					สาขาเอสพลานาด
 				  </mark>
@@ -290,12 +290,16 @@
 		</div>
 
 		
-				<div id="confirm" >
-					<img  id = "change" src="" width="80" height="80"/>
-					<div class="message" id = "mesaom"></div>
-					<button class="yes"  onclick='show()'> <p class = Kanit><b> นับใหม่ </b></p> </button>
-					<button class="no" onclick='addValueFinal()'><p class = Kanit><b>ยืนยันยอด</b></p></button>
-				</div>
+		<div id="confirm" >
+			<img  id = "change" src="" width="80" height="80"/>
+			<div class="message" id = "mesaom"></div>
+			<button class="yes"  onclick='show()'> 
+				<b> นับใหม่ </b>
+			</button>
+			<button class="no" onclick='addValueFinal()'>
+				<b>ยืนยันยอด</b>
+			</button>
+		</div>
 				<span class="loading-new" id="loading-new"><lottie-player id="loading" src="loading.json"  background="transparent" speed="1"  loop autoplay></lottie-player></span>
 				<!-- <div id="loading-new">	<lottie-player id="loading" src="loading.json"  background="transparent" speed="1"  loop autoplay></lottie-player></div> -->
 				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
