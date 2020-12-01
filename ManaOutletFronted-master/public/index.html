@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<!-- HERE AOM -->
+	<!-- update the version number as needed -->
+	<script defer src="/__/firebase/8.0.2/firebase-app.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-auth.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-database.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-firestore.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-functions.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-storage.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-analytics.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-remote-config.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-performance.js"></script>
+	<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+	<!-- jade -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>MANA OUTLET</title>
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+	<!-- Import Google Icon Font -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+	<!-- Import Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet" />
+	<script src="index.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Set Style -->
+	<!-- <script type="text/javascript">
+	document.getElementById("buttonload").style.display = "none";
+	</script> -->
+	<!-- <style>
+
+	</style> -->
+
+	<script src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+	<link rel="stylesheet" href="style.css">
+
+	<style>
+		@font-face {
+			font-family: "FC-Iconic";
+			src: url("FC\ Iconic\ Regular.ttf");
+			font-family: "FC-Iconic-bold";
+			src: url("FC\ Iconic\ Bold.ttf");
+		}
+		.contain {
+			max-width: fit-content;
+		}
+		#upload-btn {
+			font-family: "FC-Iconic-bold";
+			background-color: white;
+			border: 1.5px solid #e9572f;
+			border-radius: 12px;
+			padding: 10px;
+		}
+		#input-img1 {
+			margin-left: 20px;
+			/* margin-top: 4%; */
+			width: 85%;
+			float: left;
+		}
+		.upload-pic-content {
+			margin: 0;
+			text-align: center;
+		}
+		label.pic-btn-text {
+			font-size: 22px;
+			/* float: left; */
+			color: #e9572f;
+			position: relative;
+			bottom: 6px;
+			font-family: 'FC-ICONIC-BOLD';
+		}
+		#input-img2 {
+    margin-left: 18%;
+	float: left;
+	position: relative;
+    margin-top: 40px;
+    box-sizing: border-box;
+	overflow-x: hidden;
+	/* background-color: rgba(0,0,0,0.27); */
+	/* border-radius: 8px; */
+}
+		.img-box {
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		#image_upload {
+			opacity: 0;
+			z-index: -1;
+			position: absolute;
+		}
+		#img-btn-upload {
+			border: 4px dashed #e9572f;
+			border-radius: 12px;
+			width: 87%;
+			margin-top: 4%;
+			/* margin-left: 11px; */
+			cursor: pointer;
+			font-size: 18px;
+			/* text-align: center; */
+			padding: 12px;
+			float: left;
+		}
+		#upload-pic {
+			width: 35px;
+			height: 35px;
+			position: relative;
+			top: 5px;
+			left: -0.5%;
+			cursor: pointer;
+		}
+		#loading-new{
+			display: none;
+			margin-top: 20%;
+		}
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			margin-right: 10%;
+  			margin-top: 0.5%;
+			float: right;
+		}
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 230px;
+			background-color: #555;
+			color: #fff;
+			text-align: center;
+			border-radius: 10px;
+			padding: 10px;
+			position: absolute;
+			z-index: 1;
+			bottom: -134%;
+			right: 145%;
+			margin-left: -60px;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+		.tooltip .tooltiptext::after {
+			content: "";
+			position: absolute;
+			top: 68%;
+			left: 102%;
+			margin-left: -5px;
+			border-width: 5px;
+			transform: rotate(-90deg);
+			border-style: solid;
+			border-color: #555 transparent transparent transparent;
+		}
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+			opacity: 1;
+		}
+		#quit-btn {
+    /* float: right; */
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+	
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+</head>
+
+<body>
+	<!-- jade -->
+	<script>
+	// here aom
+	// document.getElementById("btn").disabled = true;
+		document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth',
+            'database',
+            'firestore',
+            'functions',
+            'messaging',
+            'storage',
+            'analytics',
+            'remoteConfig',
+            'performance',
+          ]
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+
+
+	</script>
+	<!-- jade -->
+
+		<div class="cont">
+			<div class="head">
+			  <img src="notes 1.svg" class="note-icon">
+			  <div class="headText-box">
+				<label class="headText" style = "font-size: 36px;font-weight: 500;">
+				 ส่งบิล
+				  <mark id="brance-name">
+					สาขาเอสพลานาด
+				  </mark>
+				</label>
+				</br>
+				<label class="headText2" id = "datetime" style = "font-size: 22px;font-weight: 500;"></label>
+				<script>
+				n =  new Date();
+				y = n.getFullYear();
+				m = n.getMonth() + 1;
+				d = n.getDate();
+				document.getElementById("datetime").innerHTML = "ประจำวันที่ "+ d + "/" + m + "/" + y;
+				</script>
+
+				
+				<div class="tooltip"><img class = "hint-icon" src="help.svg" >
+					<span class="tooltiptext">ยังไม่สามารถเปลี่ยนวันที่ได้ในขณะนี้ หากต้องการแจ้งข้อมูลย้อนหลัง </br> โปรดติดต่อ </br> 02-988-2462</span>
+				</div>
+				
+				
+			  </div>
+			</div>
+
+
+			<div id="carForm" class="col s12" autocomplete="off">
+				<div class="input-box">
+					<label class="input-head">
+					  ยอด<mark class="or">เงินสด</mark> (บาท)
+					</label>
+					<input id="cashInput" onchange="check()" oninput="check()"  type="number" pattern="[0-9]*" step="0.01" min=0 max=100000 required class="validate" placeholder="00.00" />
+				  </div>
+	  
+				  <div class="input-box">
+					<label class="input-head">
+					  ยอด<mark class="or">เงินโอน</mark> (บาท)
+					</label>
+					<input id="transferInput" onchange="check()" oninput="check()" type="number" pattern="[0-9]*" step="0.01" required class="validate" placeholder="00.00" />
+				  </div>
+	  
+				  <div class="input-box">
+					<label class="input-head">
+					  ยอด<mark class="or">รวมทั้งหมด</mark> (บาท)
+					</label>
+					<input id="posInput" onchange="check()" oninput="check()" type="number" pattern="[0-9]*" step="0.01" required class="validate" placeholder="00.00" />
+				  </div>
+	  
+				  <div id="input-img1">
+					<label id="img-btn-upload" for="image_upload">
+						<div class="upload-pic-content">
+							<img src="add 1.svg" for="image_upload" id="upload-pic" style="width: 25px;cursor:pointer;">
+							<label class="pic-btn-text">อัพโหลดรูปบิล</label>
+						</div>
+					  <input type="file" name="image" accept="image/*" id="image_upload" class = "image_upload"  onchange="check()" oninput="check()" >
+					</label>
+					
+				  </div>
+				  <div id="input-img2">
+					<div class="img-box">
+					  <img id='picAfter'  src="" style="width:343px; top: 2.5px;border-radius:10px;"/>
+					  <img id="quit-btn" onclick='uploadAgain()' src="highlight_off.svg" style="width: 25px;">
+					</div>
+				</div>
+	  
+				  <div id="img-btn-submit">
+					<!-- <button id="upload-btn" class="upload-btn" onclick="uploadPic()" onchange="check()" oninput="check()">อัพโหลดรูปบิล</button> -->
+				  </div>
+				  <button id="btn" onclick="buttonClick()" class="btn waves-effect waves-light" type="button" disabled="disabled">
+							บันทึกและส่ง</button>
+			</div>
+
+
+		</div>
+
+		
+				<div id="confirm" >
+					<img  id = "change" src="" width="80" height="80"/>
+					<div class="message" id = "mesaom"></div>
+					<button class="yes"  onclick='show()'> <p class = Kanit><b> นับใหม่ </b></p> </button>
+					<button class="no" onclick='addValueFinal()'><p class = Kanit><b>ยืนยันยอด</b></p></button>
+				</div>
+				<span class="loading-new" id="loading-new"><lottie-player id="loading" src="loading.json"  background="transparent" speed="1"  loop autoplay></lottie-player></span>
+				<!-- <div id="loading-new">	<lottie-player id="loading" src="loading.json"  background="transparent" speed="1"  loop autoplay></lottie-player></div> -->
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+				<div id="result"></div>
+</body>
+
+</html>

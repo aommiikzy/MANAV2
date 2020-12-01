@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jade -->
+	<!-- update the version number as needed -->
+	<script defer src="/__/firebase/8.0.2/firebase-app.js"></script>
+	<!-- include only the Firebase features as you need -->
+	<script defer src="/__/firebase/8.0.2/firebase-auth.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-database.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-firestore.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-functions.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-messaging.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-storage.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-analytics.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-remote-config.js"></script>
+	<script defer src="/__/firebase/8.0.2/firebase-performance.js"></script>
+	<!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+	<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+
+	<!-- jade -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>MANA OUTLET</title>
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+	<!-- Import Google Icon Font -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+	<!-- Import Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet" />
+	<script src="index.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Set Style -->
+	<!-- <script type="text/javascript"> 
+	document.getElementById("buttonload").style.display = "none";
+	</script> -->
+	<!-- <style>
+
+	</style> -->
+	<img id="pictureUrl" width="25%">
+	<p id="userId"></p>
+	<p id="displayName"></p>
+	<p id="statusMessage"></p>
+	<p id="getDecodedIDToken"></p>
+	<script src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<!-- jade -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ]
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+	</script>
+	<!-- jade -->
+	<div class="contain">
+		<!-- Start Header Content -->
+
+		<!-- <img src="Frame 255.svg"> -->
+		<div class="head">
+			<img src="notes 1.svg" class="note-icon">
+			<div class="headText-box">
+				<label class="headText" style = "font-size: 36px;font-weight: 500;">
+					ส่งบิล 
+					<mark id="brance-name">
+						สาขาเอสพลานาด
+					</mark>
+				</label>
+				<!-- <label class="headText3" style = "font-size: 18px;font-weight: 300;">สาขา</label> -->
+				</br>
+				<label class="headText2" style = "font-size: 22px;font-weight: 500;">ประจำวันที่</label>
+				<img class = "hint-icon" src="help.svg">
+			</div>
+
+			</div>
+
+			<!-- Start Form Content -->
+			<div class="row">
+				<div id="carForm" class="col s12" autocomplete="off">
+					<label class="input-head">
+					ยอด<mark class="or">เงินสด</mark> (บาท)
+				</label>
+					<div class="input-box">
+						<input id="cashInput"  type="number" step="0.01" min=0 max=100000 required class="validate" placeholder="00.00" />
+				</div>
+
+						<label class="input-head">
+					ยอด<mark class="or">เงินโอน</mark> (บาท)
+				</label>
+						<div class="input-box">
+							<input id="transferInput"  type="number" step="0.01" required class="validate" placeholder="00.00" />
+				</div>
+
+							<label class="input-head">
+					ยอด<mark class="or">รวมทั้งหมด</mark> (บาท)
+				</label>
+							<div class="input-box">
+								<input id="posInput"  type="number" step="0.01" required class="validate" placeholder="00.00" />
+				</div>
+
+
+								<!-- <input  type="file" name="image" accept="image/*" id="image_upload" class = "image_upload"> -->
+
+								<div id="img-btn-submit">
+									<img src="add 1.svg" style="width: 15px;height: 15px;width: 15px;height: 15px;position: relative;top: 2.5px;">
+									<button id="upload-btn" class="upload-btn" onclick="uploadPic()">อัพโหลดรูปบิล</button>
+								</div>
+							</div>
+
+							<button id="btn" onclick="buttonClick()" class="btn waves-effect waves-light" type="button">
+										บันทึกและส่ง</button>
+						</div>
+					</div>
+					<!-- End Form Content -->
+
+					<!-- Start Table Content -->
+
+					<div id="result"></div>
+					<!-- End Table Content -->
+
+					<!-- Start Footer -->
+
+					<!-- End Footer -->
+				</div>
+				<!-- End Container -->
+
+</body>
+
+</html>
